@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "le souffleur",
+  "version": "0.1.0",
+  "description": "Read the current page aloud with follow-along highlighting.",
+  "action": { "default_title": "Read this page with le souffleur" },
+  "background": { "service_worker": "background.js" },
+  "permissions": ["activeTab", "scripting", "sidePanel"],
+  "host_permissions": ["http://localhost:8000/*", "https://*/*", "http://*/*"],
+  "side_panel": { "default_path": "sidepanel.html" }
+}
