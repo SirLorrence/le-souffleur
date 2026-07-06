@@ -72,21 +72,3 @@ cd backend && .venv/bin/pytest -m integration   # real Kokoro synthesis
 cd server && cargo test                          # rust
 node --test 'frontend/test/**/*.test.js'         # frontend pure logic
 ```
-
-## Moving to a new machine
-
-Everything needed lives in git. These are **not** committed and regenerate from
-the steps above, so don't copy them: `backend/.venv/`, `server/target/`,
-`extension/lib/`, and the Kokoro model (re-downloads on first synth).
-
-To carry the full history as one file (no remote needed):
-
-```bash
-# on the old machine
-git bundle create le-souffleur.bundle --all
-# move le-souffleur.bundle to the new machine, then:
-git clone le-souffleur.bundle le-souffleur && cd le-souffleur
-```
-
-Then follow **Prerequisites** → **Setup** → **Run**. Rebuild the extension libs
-with `extension/build.sh` before loading it unpacked.
